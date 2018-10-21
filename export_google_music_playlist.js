@@ -40,4 +40,16 @@
 		'tracks': trackList
 	})
 })()
-JSON.stringify(window._beezList)
+
+(function (url, xhr) {
+	var xhr = new XMLHttpRequest()
+	xhr.onreadystatechange = function() {
+		if (this.readyState != 4) return
+		if (this.status == 200) {
+			console.log(this.responseText)
+		}
+	}
+	xhr.open('POST', url, true)
+	xhr.setRequestHeader('Content-Type', 'application/json')
+	xhr.send(JSON.stringify(window._beezList))
+})()
