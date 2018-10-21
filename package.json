@@ -1,0 +1,14 @@
+{
+ "scripts": {
+  "start": "node app.js",
+  "startdev": "nodemon app.js",
+  "test": "ava"
+ },
+ "dependencies": {
+  "express": "^4.16.4",
+  "nodemon": "^1.18.4"
+ },
+ "devDependencies": {
+  "ava": "^0.25.0"
+ }
+}
