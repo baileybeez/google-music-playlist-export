@@ -10,7 +10,7 @@ const api = {
 }
 
 api.method = (request, response) => {
-	
+	response.send("hello world")
 }
 
 module.exports = api;

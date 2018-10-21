@@ -54,11 +54,28 @@ module.exports = class Api {
 	}
 
 	getKey(obj) {
-		return `${obj.path}_${obj.version}`
+		return `${obj.url}_${obj.version}`
+	}
+
+	getRouteUrl(obj) {
+		return `/api/v${obj.version}/${obj.url}/`
 	}
 
 	addApi(obj) {
-		const key = this.getKey(obj)
-		this._apiMap[key] = obj
+		obj.key = this.getKey(obj)
+		obj.routeUrl = this.getRouteUrl(obj)
+
+		this._apiMap[obj.key] = obj
+	}
+
+	initializeRoutes(app) {
+		Object.keys(this._apiMap).forEach(key => {
+			var item = this._apiMap[key]
+
+			console.log(`- adding route: ${item.routeUrl}`)
+			app.post(item.routeUrl, (request, response) => {
+				item.method(request, response)
+			})
+		})
 	}
 }

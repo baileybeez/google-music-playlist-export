@@ -58,6 +58,12 @@ ava.serial('load a test module', test => {
 	test.true(obj.url.length > 0, 'invalid api url')
 	test.true(obj.method instanceof Function, 'invalid method')
 	test.true(_api.isValidApi(obj), 'API cannot see a valid module')
+
+	var testKey = 'test_1' //`${obj.url}_${obj.version}`
+	test.is(testKey, _api.getKey(obj), 'cannot calculate correct key')
+
+	var testUrl = '/api/v1/test/' // `/api/v${obj.version}/${obj.url}/`
+	test.is(testUrl, _api.getRouteUrl(obj), 'cannot calculate correct route')
 })
 
 ava.test('load all modules', test => {
