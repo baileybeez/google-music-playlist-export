@@ -7,7 +7,7 @@ I wanted a simple way to retrieve my playlists from Google Play Music. Without a
 The solution is a mix of client-side and server-side javascript.
 
 Roadmap
-[Trello Borad](https://trello.com/b/MZOptfPh)
+[Trello Board](https://trello.com/b/MZOptfPh)
 
 
 ### setup & run
