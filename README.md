@@ -11,11 +11,16 @@ Roadmap
 
 
 ### setup & run
-1. startup the local server (yarn start)
+1. startup the local server 
+```
+yarn start
+```
 2. copy script from 'export_google_music_playlist.js' and insert your URL (ie: 'https://myserver.com') into the parameter.
 3. paste this script into the javascript console while viewing the selected playlist on Google Play Music.
 
 
 ### unit tests
 Units tests can be issues via: 
+```
 yarn test
+```
