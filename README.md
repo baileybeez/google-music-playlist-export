@@ -16,6 +16,11 @@ Roadmap
 yarn start
 ```
 2. copy script from 'export_google_music_playlist.js' and insert your URL (ie: 'https://myserver.com') into the parameter.
+```javascript
+(function (url, xhr) {
+...
+})('<target domain>');
+```
 3. paste this script into the javascript console while viewing the selected playlist on Google Play Music.
 
 
