@@ -1,4 +1,4 @@
-# google-music-playlist-export
+# Google Music Playlist Exporting Tool
 Toolkit to allow easy exporting of playlists from Google Music to a local store
 
 ### project overview
