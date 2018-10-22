@@ -10,6 +10,7 @@ const TEST_MODULE = 'test_api_v1.js'
 
 var _api
 var _testModulePath
+var _moduleCount
 
 ava.serial('config has necessary settings', test => {
 	test.truthy(config.api.path)
@@ -66,7 +67,7 @@ ava.serial('load a test module', test => {
 	test.is(testUrl, _api.getRouteUrl(obj), 'cannot calculate correct route')
 })
 
-ava.test('load all modules', test => {
+ava.serial('load all modules', test => {
 	test.plan(3)
 
 	return new Promise((resolve, reject) => {
@@ -75,10 +76,33 @@ ava.test('load all modules', test => {
 			test.true(Array.isArray(files), 'no modules found in dir')
 			test.true(files.length > 0, 'no modules to load/test')
 
-			var count = _api.loadAllModules()
-			test.is(count, files.length, 'some modules count not be loaded')
+			_moduleCount = _api.loadAllModules()
+			test.is(_moduleCount, files.length, 'some modules count not be loaded')
 
 			resolve()
 		})	
 	})
+})
+
+ava.serial('modules loaded successfully :: manual map scan for key', test => {
+	test.plan(_moduleCount * 2)
+
+	var targetKey = _api.getKeyRaw('test', 1)
+	Object.keys(_api._apiMap).forEach(key => {
+		test.not(key, undefined, 'invalid key in map')
+		test.not(key.length, 0, 'invalid key in map')
+
+		console.log(`scan/keycheck -> ${key} ?= ${targetKey}`)
+		if (targetKey == key)
+			console.log("found target module: " + targetKey)
+	})
+})
+
+ava.serial('locate requested module via api', test => {
+	var obj = _api.findModule('test', 1)
+
+	test.truthy(obj, 'module could not be found')
+	test.is(obj.version, 1, 'invalid version number for module')
+	test.is(obj.url, 'test', 'invalid url for module')
+	test.truthy(obj.method, 'invalid method in module')
 })

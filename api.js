@@ -54,7 +54,11 @@ module.exports = class Api {
 	}
 
 	getKey(obj) {
-		return `${obj.url}_${obj.version}`
+		return this.getKeyRaw(obj.url, obj.version)
+	}
+
+	getKeyRaw(url, ver) {
+		return `${url}_${ver}`	
 	}
 
 	getRouteUrl(obj) {
@@ -77,5 +81,9 @@ module.exports = class Api {
 				item.method(request, response)
 			})
 		})
+	}
+
+	findModule(url, version) {
+		return this._apiMap[this.getKeyRaw(url, version)]
 	}
 }
