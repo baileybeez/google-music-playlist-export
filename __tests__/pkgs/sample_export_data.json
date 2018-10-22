@@ -1,3 +1,7 @@
 [
-	{}
+	{
+		"playlist": "sample_playlist",
+		"tracks": [
+		]
+	}
 ]
