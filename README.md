@@ -25,7 +25,7 @@ yarn start
 
 
 ### unit tests
-Units tests can be issues via: 
+Units tests can be run via: 
 ```
 yarn test
 ```
