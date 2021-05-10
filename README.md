@@ -2,6 +2,7 @@
 Toolkit to allow easy exporting of playlists from Google Music to a local store
 
 *** this project is no longer being actively maintained ***
+
 *** lodash dependancy should be updated or removed if branched as it has a vulnerability *** 
 
 ### project overview
