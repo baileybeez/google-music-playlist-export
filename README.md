@@ -1,13 +1,13 @@
 # Google Music Playlist Exporting Tool
 Toolkit to allow easy exporting of playlists from Google Music to a local store
 
+*** this project is no longer being actively maintained ***
+*** lodash dependancy should be updated or removed if branched as it has a vulnerability *** 
+
 ### project overview
 I wanted a simple way to retrieve my playlists from Google Play Music. Without a simple mechanism available from Google, the solution needs a script to run within the browser and a backend service to receive and store the playlist data. All data is stored in JSON, though a longer term plan for a SQLite or Mongo datastore is planned.
 
 The solution is a mix of client-side and server-side javascript.
-
-Roadmap
-[Trello Board](https://trello.com/b/MZOptfPh)
 
 
 ### setup & run
